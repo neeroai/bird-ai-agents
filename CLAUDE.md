@@ -13,16 +13,17 @@ This is a documentation-based template repository for implementing AI employees 
 - **Target Users**: Businesses implementing AI customer service/sales agents
 - **Platform Constraints**: Bird.com requires manual configuration (no API/automation)
 
-## Repository Structure
+## Repository Structure (Updated 2025-08-03)
 
 ```
-bmad-agents/              # 6 specialized AI agent methodologies
-project-phases/           # 3-phase implementation workflow
-knowledge-base-templates/ # Industry-specific templates (e-commerce, real-estate)
-personality-templates/    # AI personality configurations
-whatsapp-integration/     # WhatsApp Business API implementation guides
-ai-actions-library/       # Reusable AI action patterns
+templates/              # Ready-to-use configuration templates
+guides/                 # Step-by-step implementation guides (3 phases)
+examples/               # Real-world case studies (e-commerce, real-estate)
+docs/                   # Technical documentation
+bmad-agents/            # 6 specialized BMAD agent guides (reference)
 ```
+
+**Note**: Structure was simplified from 27 directories to 8 for better usability.
 
 ## Development Guidelines
 
@@ -34,9 +35,10 @@ Since this is a documentation repository:
 
 ## Key Files
 
-1. `BMAD-BIRD-METHOD.md` - Core methodology (479 lines)
-2. `README.md` - Project overview and quick start guide
-3. `bmad-agents/01-analyst-agent.md` - Business analysis methodology (295 lines)
+1. `BMAD-METHOD.md` - Core methodology (simplified and updated)
+2. `README.md` - Project overview and quick start guide (compact)
+3. `guides/quick-start.md` - 5-minute getting started guide
+4. `examples/real-estate/urbanhub-example.md` - Complete implementation case study
 
 ## BMAD Agent Roles
 
@@ -62,70 +64,71 @@ All AI employee implementations follow these phases:
 - Focus on e-commerce and real estate verticals
 - Templates should be complete and production-ready
 
-## File Organization Rules
+## Language and Localization Standards
+
+### UrbanHub Project Language Requirements
+
+**Default Language**: Mexican Spanish (Neutral CDMX/Guadalajara tone)
+- All UrbanHub AI agents must communicate in Mexican Spanish by default
+- Use conversational, friendly, and authentically Mexican expressions
+- Natural phrases: "claro que sí", "oye", "¿va?", "ándale", "la neta", "no te preocupes"
+- Tone: Like a helpful real estate advisor with good vibes
+- Transmit warmth, closeness, and security
+- Avoid overly formal or technical language
+
+**Multilingual Capability**: Future expansion ready
+- Agents should be designed with multilingual architecture in mind
+- Primary focus: Mexican Spanish
+- Secondary consideration: English for international clients
+- Template structure should support easy language expansion
+
+**Cultural Context**:
+- Mexican real estate terminology (departamento, recámara, cochera, etc.)
+- Local business communication norms
+- CDMX/Guadalajara neutral Mexican Spanish
+- Professional yet warm and approachable tone
+
+**Fallback Language Behavior**:
+- When uncertain: "Déjame checarlo y te aviso en un momentito, ¿va?"
+- Maintain Mexican Spanish throughout all interactions
+- Escalate to human agents only when language barriers occur
+
+## File Organization Rules (Simplified Structure)
 
 ### Where to place specific file types:
 
-1. **Business Analysis Documents**
-   - Location: `project-phases/phase-1-planning/{client}/`
-   - Naming: `{client}-brd.md`, `{client}-prd.md`, `{client}-architecture.md`
-   - Example: `project-phases/phase-1-planning/urbanhub/urbanhub-brd.md`
+1. **Templates** (`templates/`)
+   - `personality.md` - AI personality template
+   - `knowledge-base.md` - KB structure template
+   - `whatsapp-messages.md` - Message templates
+   - `ai-actions.md` - Actions configuration
 
-2. **Configuration Guides**
-   - Location: `project-phases/phase-2-configuration/{client}/`
-   - Naming: `step-{number}-{description}.md`
-   - Example: `project-phases/phase-2-configuration/koaj/step-01-profile-setup.md`
+2. **Guides** (`guides/`)
+   - `quick-start.md` - 5-minute overview
+   - `01-planning.md` - Phase 1 guide
+   - `02-configuration.md` - Phase 2 guide
+   - `03-testing.md` - Phase 3 guide
 
-3. **Testing Documentation**
-   - Location: `project-phases/phase-3-testing/{client}/`
-   - Naming: `{client}-test-plan.md`, `{client}-test-results.md`
-   - Example: `project-phases/phase-3-testing/urbanhub/urbanhub-test-results.md`
+3. **Examples** (`examples/`)
+   - `e-commerce/` - E-commerce implementations
+   - `real-estate/` - Real estate implementations
+   - Each example should be self-contained
 
-4. **Personality Templates**
-   - Location: `personality-templates/{industry}/`
-   - Naming: `{brand}-personality.md`
-   - Example: `personality-templates/e-commerce/koaj-personality.md`
+4. **Documentation** (`docs/`)
+   - `bird-platform.md` - Platform overview
+   - `best-practices.md` - Proven patterns
 
-5. **Knowledge Base Content**
-   - Location: `knowledge-base-templates/{industry}/{category}/`
-   - Structure: Follow Bird.com's folder hierarchy exactly
-   - Example: `knowledge-base-templates/real-estate/properties/listings.md`
-
-6. **WhatsApp Templates**
-   - Location: `whatsapp-integration/templates/{use-case}/`
-   - Naming: `{purpose}-template.md`
-   - Example: `whatsapp-integration/templates/sales/welcome-message.md`
-
-7. **AI Actions Library**
-   - Location: `ai-actions-library/{action-type}/`
-   - Naming: `{action-name}-config.md`
-   - Example: `ai-actions-library/handover/escalate-to-human.md`
-
-8. **Case Studies**
-   - Location: `case-studies/{client}/`
-   - Structure: Include all relevant documentation for the case
-   - Example: `case-studies/koaj/implementation-summary.md`
+5. **BMAD Agents** (`bmad-agents/`)
+   - Keep as reference for detailed methodology
+   - 6 agent files remain unchanged
 
 ### File Creation Guidelines:
 
-- **NEVER** create files in the root directory (except for README.md updates)
-- **ALWAYS** create a client-specific subfolder when starting a new implementation
-- **MAINTAIN** industry separation (e-commerce vs real-estate) in template folders
-- **FOLLOW** the naming conventions strictly for consistency
+- **PREFER** using existing templates over creating new files
+- **KEEP** structure flat and simple (max 2 levels deep)
+- **FOCUS** on reusable templates rather than client-specific files
 - **USE** lowercase with hyphens for file names (kebab-case)
-- **CREATE** README.md files in each directory to explain its purpose
-
-### Directory Structure Example:
-
-```
-project-phases/
-└── phase-1-planning/
-    ├── README.md (explains phase 1 process)
-    └── koaj/
-        ├── koaj-brd.md
-        ├── koaj-prd.md
-        └── koaj-architecture.md
-```
+- **AVOID** creating unnecessary subdirectories
 
 ## When Making Changes
 
